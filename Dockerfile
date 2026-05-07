@@ -1,4 +1,4 @@
-FROM node:24-alpine
+FROM node:25-alpine
 
 ENV NPM_CONFIG_FUND=false \
     NPM_CONFIG_AUDIT=false \
