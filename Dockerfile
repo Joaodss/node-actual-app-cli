@@ -1,21 +1,11 @@
-FROM node:24-alpine AS builder
-
-WORKDIR /app
-
-COPY package*.json .npmrc ./
-
-RUN npm ci \
-    --omit=dev \
-    --no-audit \
-    --no-fund \
-    && npm cache clean --force
-
-
 FROM node:24-alpine
 
-WORKDIR /app
+ENV NPM_CONFIG_FUND=false \
+    NPM_CONFIG_AUDIT=false \
+    NPM_CONFIG_UPDATE_NOTIFIER=false
 
-COPY --from=builder /app/node_modules ./node_modules
-COPY package*.json ./
+RUN npm install -g @actual-app/cli \
+    && npm cache clean --force \
+    && rm -rf /root/.npm
 
-ENTRYPOINT ["./node_modules/.bin/actual"]
+ENTRYPOINT ["actual"]
