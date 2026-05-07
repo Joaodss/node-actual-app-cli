@@ -20,7 +20,7 @@ jobs:
       - name: Get actual-app-cli version
         id: version
         run: |
-          VERSION=$(node -p "require('./package.json').dependencies['@actual-app/cli'].replace(/^[^0-9]*/, '')")
+          VERSION=$(node -p "require('./package.json').dependencies['@actual-app/cli']")
           echo "version=$VERSION" >> $GITHUB_OUTPUT
 
       - name: Set up Docker Buildx
