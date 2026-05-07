@@ -8,4 +8,4 @@ RUN npm install -g @actual-app/cli \
     && npm cache clean --force \
     && rm -rf /root/.npm
 
-ENTRYPOINT ["actual"]
+CMD ["sleep", "infinity"]
