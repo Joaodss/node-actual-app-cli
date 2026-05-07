@@ -40,5 +40,6 @@ jobs:
           context: .
           push: true
           tags: |
-            ghcr.io/${{ github.repository }}:latest
-            ghcr.io/${{ github.repository }}:${{ steps.version.outputs.version }}
+            ghcr.io/${{ github.repository_owner }}/node-actual-app-cli:latest
+            ghcr.io/${{ github.repository_owner }}/node-actual-app-cli:${{ steps.version.outputs.version }}
+  
