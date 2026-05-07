@@ -53,4 +53,12 @@ jobs:
           tags: |
             ghcr.io/${{ steps.repo_owner.outputs.name }}/node-actual-app-cli:latest
             ghcr.io/${{ steps.repo_owner.outputs.name }}/node-actual-app-cli:${{ steps.version.outputs.version }}
-  
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: v${{ steps.version.outputs.version }}
+          body: |
+            Docker image published to ghcr.io/${{ steps.repo_owner.outputs.name }}/node-actual-app-cli:${{ steps.version.outputs.version }}
+            
+            Using @actual-app/cli version: ${{ steps.version.outputs.version }}
