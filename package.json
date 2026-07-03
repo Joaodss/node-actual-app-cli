@@ -2,6 +2,6 @@
   "name": "node-actual-app-cli",
   "private": true,
   "dependencies": {
-    "@actual-app/cli": "26.5.0"
+    "@actual-app/cli": "26.7.0"
   }
 }
